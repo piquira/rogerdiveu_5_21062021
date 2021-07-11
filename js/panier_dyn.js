@@ -85,9 +85,9 @@ const vider_panier = document.querySelector(".vider_panier");
 let prixTotalcalcul = [];
 //Chercher les prix dans panier
     for (let m = 0; m < itemsLocalStorage.length; m++) {
-        let prixProduitDansLePanier = itemsLocalStorage[m].price;
+        let prixProduitPanier = itemsLocalStorage[m].price;
         //mettre les prix du panier dans la variable prixtotalcalcul
-        prixTotalcalcul.push(prixProduitDansLePanier)
+        prixTotalcalcul.push(prixProduitPanier)
     }
     //addition des prix du tableau de la variable prixTotalCalcul avec .reducer
     const reducer = (accumulator, currentvalue) => accumulator + currentvalue
