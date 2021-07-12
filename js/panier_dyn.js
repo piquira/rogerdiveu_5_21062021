@@ -97,14 +97,3 @@ let prixTotalcalcul = [];
     </div>`;
     //// mise en place code html du bouton vider panier
     positionElement4.insertAdjacentHTML("beforeEnd", affichagePrixTotal);
-
-    
-
-
-
-
-
-
-
-
-
