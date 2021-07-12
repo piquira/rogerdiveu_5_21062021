@@ -1,10 +1,10 @@
 // récupérer les données de l'API avec La promesse Fetch-methode asynchrone
 const chargerPeluches = async(url) => {
-  teddies = await fetch(url)
-  .then(response => { return response.json(); })
-      .catch((error) => {
-          console.log('Il y a eu un problème' + error.message);
-      });
+    teddies = await fetch(url)
+    .then(response => { return response.json(); })
+        .catch((error) => {
+            console.log('Il y a eu un problème' + error.message);
+        });
 
 };
 //inclure le lien pour récupéré l'id du produit dans l'Url pour affichage page du produit
@@ -29,7 +29,7 @@ const affichageProduits = async(results) => {
         console.log("erreur de chargement de la page");
     }
 };
-// injecter les information dans le HTML
+// insérer dans le HTML
 affichageProduits(document.getElementById("container-produits"));
 
 

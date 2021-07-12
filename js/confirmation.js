@@ -13,21 +13,19 @@ function confirmation(dataconfirm) {
             <p class="card-text text-center">Votre numéro de commande est le: ${responseId}</p>
             <p class="card-text text-center">Montant total de la commande: ${prixTotal} €</p>
             <p class="card-text text-center">Merci pour votre commande</p>
-    </div> 
-`;
+        </div> `;
 
-        dataconfirm.innerHTML = confirm;
-    } else {
+        dataconfirm.innerHTML = confirm;} 
+    else {
         console.log("erreur de chargement de page");
     }
 }
 confirmation(document.querySelector("#confirmation_commande"));
 
-//suppression données dû LocalStorage
+//suppression données du LocalStorage
 function suppCleLocalStorage(key) {
     localStorage.removeItem(key);
 };
-
 suppCleLocalStorage("prixTotal");
 suppCleLocalStorage("products");
 suppCleLocalStorage("responseId");
