@@ -5,10 +5,9 @@ const chargerPeluches = async(url) => {
         .catch((error) => {
             console.log('Il y a eu un problème' + error.message);
         });
-
 };
-//inclure le lien pour récupéré l'id du produit dans l'Url pour affichage page du produit
 
+//inclure le lien pour récupéré l'id du produit dans l'Url pour affichage page du produit
 const affichageProduits = async(results) => {
     await chargerPeluches(url);
     if (results) {

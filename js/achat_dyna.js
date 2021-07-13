@@ -63,52 +63,51 @@ function initialiserPanier(teddy) {
     const btn_ajouterPanier = document.querySelector("#btn-envoyer");
     //écouter le bouton
     btn_ajouterPanier.addEventListener("click", (event) => {
-      event.preventDefault();
-    //Mettre le choix dans une variable
-    const choixColors = idColors.value;
-    //récupération des valeurs du formulaire
-    let ajouterProduit = {
-        name: teddy.name,
-        _id: teddy._id,
-        option_couleur: choixColors,
-        quantite: 1,
-        price: teddy.price / 100
-    };
+        event.preventDefault();
+        //Mettre le choix dans une variable
+        const choixColors = idColors.value;
+        //récupération des valeurs du formulaire
+        let ajouterProduit = {
+            name: teddy.name,
+            _id: teddy._id,
+            option_couleur: choixColors,
+            quantite: 1,
+            price: teddy.price / 100
+        };
+        /*stocker les valeurs du formulaire récupérer dans le local storage
+        déclatation variable "produitEnregistrerDansLocalStorage"dans laquelle il y a les key et values
+        du local storage JSON.parse pour convertir les données qui sont dans le local storage en objet javascript*/
 
-    //................................. stocker les valeurs du formulaire récupérer dans le local storage
-    /*déclatation variable "produitEnregistrerDansLocalStorage"dans laquelle il y a les key et values
-    du local storage JSON.parse pour convertir les données qui sont dans le local storage en objet javascript*/
+        let produitDansLocalStorage = JSON.parse(localStorage.getItem("products"));
 
-    let produitDansLocalStorage = JSON.parse(localStorage.getItem("products"));
-
-    //pop up pour mettre dans panier ou retour liste
-    const popupContinuer = () => {
-      if (window.confirm(`${teddy.name} option: ${choixColors} Ajouté. Voir le panier`)) {
-        window.location.href = "panier_dyn.html";
-      }
-      else {
-        window.location.href = "liste_prod_stat.html";
-      }
-    }
-    //fonction ajouter un produit dans le localstrorage
-    const ajoutProduitLocalStorage = () => {
-      //ajouter dans le tableau l'objet avec les valeurs choisies par l'utilisateur
-      produitDansLocalStorage.push(ajouterProduit);
-      //transformation en format JSON et envoyer dans la clé produit du localstorage  
-      localStorage.setItem("products", JSON.stringify(produitDansLocalStorage));
-    };
-    //si panier déjà existant dans le localstorage
-    if (produitDansLocalStorage) {
-      ajoutProduitLocalStorage();
-      popupContinuer();
-    }
-    //sinon si panier vide dans le localstorage
-    else {
-      produitDansLocalStorage = [];
-      ajoutProduitLocalStorage();
-      popupContinuer();
-    }
-  });
+        //pop up pour mettre dans panier ou retour liste
+        const popupContinuer = () => {
+          if (window.confirm(`${teddy.name} option: ${choixColors} Ajouté. Voir le panier`)) {
+            window.location.href = "panier_dyn.html";
+          }
+          else {
+            window.location.href = "liste_prod_stat.html";
+          }
+        }
+        //fonction ajouter un produit dans le localstrorage
+        const ajoutProduitLocalStorage = () => {
+        //ajouter dans le tableau l'objet avec les valeurs choisies par l'utilisateur
+        produitDansLocalStorage.push(ajouterProduit);
+        //transformation en format JSON et envoyer dans la clé produit du localstorage  
+        localStorage.setItem("products", JSON.stringify(produitDansLocalStorage));
+        };
+          //si panier déjà existant dans le localstorage
+          if (produitDansLocalStorage) {
+            ajoutProduitLocalStorage();
+            popupContinuer();
+          }
+          //sinon si panier vide dans le localstorage
+          else {
+            produitDansLocalStorage = [];
+            ajoutProduitLocalStorage();
+            popupContinuer();
+          }
+    });
 }
 window.onload = () => {
     chargerInfoPeluche(id).then((peluche) => {

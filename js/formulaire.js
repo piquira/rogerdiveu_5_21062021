@@ -57,9 +57,9 @@ function showForm() {
         };
         //__________________Validation formulaire méthode regEx
         const textAlert = (value) => {
-            return value + ":erreur au niveau du formulaire"
+            return value + ":Erreur à corriger au niveau du formulaire"
         };
-        const regExPrenomNomVille = (value) => {
+        const regExTexte = (value) => {
             return /^([A-Za-z]{3,19})?([-]{0,1})?([A-Za-z]{0,19})$/.test(value);
         };
         const regExcodePostal = (value) => {
@@ -73,7 +73,7 @@ function showForm() {
         };
         function prenomControle() {  //validation contrôle du prenom
             const lePrenom = formulaireValues.firstName;
-            if (regExPrenomNomVille(lePrenom)) {
+            if (regExTexte(lePrenom)) {
                 return true;
             } else {
                 alert(textAlert("Prénom"));
@@ -82,7 +82,7 @@ function showForm() {
         };
         function nomControle() {  //validation contrôle du nom
             const leNom = formulaireValues.lastName;
-            if (regExPrenomNomVille(leNom)) {
+            if (regExTexte(leNom)) {
                 return true;
             } else {
                 alert(textAlert("Nom"));
@@ -100,7 +100,7 @@ function showForm() {
         };
         function villeControle() {  //validation contrôle du prenom
             const laVille = formulaireValues.city;
-            if (regExPrenomNomVille(laVille)) {
+            if (regExTexte(laVille)) {
                 return true;
             } else {
                 alert(textAlert("Ville"));
