@@ -3,7 +3,7 @@ const responseId = localStorage.getItem("responseId");
 // recuperation prix total commande
 const prixTotal = localStorage.getItem("prixTotal");
 // recuperation des donnéees du formulaire
-const formulaireValues = localStorage.getItem("formulaireValues");
+const contacts = localStorage.getItem("contacts");
 
 function confirmation(dataconfirm) {
     if (dataconfirm) {

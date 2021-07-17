@@ -1,5 +1,4 @@
 //affichage du produit qui a été sélectionné par l'id
-
 async function chargerInfoPeluche(id) {
     const reponse = await fetch(url + "/" + id);
     const teddy = await reponse.json();
@@ -11,34 +10,33 @@ async function chargerInfoPeluche(id) {
 
 function afficherInfoPeluche(teddy) {
     // slelection de la classe pour le code HTML
-    const positionElement2 = document.querySelector(".container");
+    const insererElement2 = document.querySelector(".container");
 
     // Structure pour la page code HTML
-    const structureArticle2 =
-      `
-    <div class="shop-items">
-      <div class="card shop-item-details">
-        <div id="img0" class="shop-item-details">
-          <img src="${teddy.imageUrl}"></img>
-        </div>      <br /> 
-        <div id="nom0" class="shop-item-title">
-          <h2>${teddy.name}</h2>
-        </div><br />      
-        <div id="description0 ">
-          <h3>${teddy.description}</h4>
-        </div>  <br />
-        <div id="colors0">
-          <form>
-            <label for="option_produit">Couleur</label>
-              <select name ="option_produit" id="option_produit">   </select>
-          </form>
-        </div>    <br />
-        <div id="prix0">
-          <span class="shop-item-price">Prix: ${teddy.price / 100} € </span>
+    const htmlProduit =`
+      <div class="shop-items">
+        <div class="card shop-item-details">
+          <div id="img0" class="shop-item-details">
+            <img src="${teddy.imageUrl}"></img>
+          </div>      <br /> 
+          <div id="nom0" class="shop-item-title">
+            <h2>${teddy.name}</h2>
+          </div><br />      
+          <div id="description0 ">
+            <h3>${teddy.description}</h4>
+          </div>  <br />
+          <div id="colors0">
+            <form>
+              <label for="option_produit">Couleur</label>
+                <select name ="option_produit" id="option_produit">   </select>
+            </form>
+          </div>    <br />
+          <div id="prix0">
+            <span class="shop-item-price">Prix: ${teddy.price / 100} € </span>
+          </div>
         </div>
-      </div>
-        <button id="btn-envoyer" class="btn btn-primary shop-item-button" type="submit" name="btn-envoyer">Ajouter</button>
-    </div> `;
+          <button id="btn-envoyer" class="btn btn-primary shop-item-button" type="submit" name="btn-envoyer">Ajouter</button>
+      </div> `;
     //..................................choisir les options de l'objet
     const optionColors = teddy.colors;
       let htmlColors = [];
@@ -49,10 +47,10 @@ function afficherInfoPeluche(teddy) {
             `;
         }
       //mettre le code html dans la page web
-      positionElement2.innerHTML = structureArticle2;
+      insererElement2.innerHTML = htmlProduit;
       //mettre le code html dans la page web pour les options
-      const positionElement3 = document.querySelector("#option_produit")
-      positionElement3.innerHTML = htmlColors;     
+      const insererElement3 = document.querySelector("#option_produit")
+      insererElement3.innerHTML = htmlColors;     
 }
 
 // récupération des données sélectionnées et envoie vers panier
@@ -74,19 +72,19 @@ function initialiserPanier(teddy) {
             quantite: 1,
             price: teddy.price / 100
         };
-        /*stocker les valeurs du formulaire récupérer dans le local storage
-        déclatation variable "produitEnregistrerDansLocalStorage"dans laquelle il y a les key et values
-        du local storage JSON.parse pour convertir les données qui sont dans le local storage en objet javascript*/
+        /*stocker les valeurs du formulaire récupérés dans le local storage
+        déclatation variable "produitDansLocalStorage"dans laquelle il y a les key et values
+        du local storage. JSON.parse pour convertir les données qui sont dans le local storage en objet javascript*/
 
         let produitDansLocalStorage = JSON.parse(localStorage.getItem("products"));
 
         //pop up pour mettre dans panier ou retour liste
         const popupContinuer = () => {
-          if (window.confirm(`${teddy.name} option: ${choixColors} Ajouté. Voir le panier`)) {
-            window.location.href = "panier_dyn.html";
+          if (window.confirm(`${teddy.name} option: ${choixColors} Article ajouté. Voir le panier`)) {
+            window.location.href = "panier.html";
           }
           else {
-            window.location.href = "liste_prod_stat.html";
+            window.location.href = "liste_produit.html";
           }
         }
         //fonction ajouter un produit dans le localstrorage

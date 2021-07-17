@@ -1,7 +1,7 @@
 /*déclatation variable "produitEnregistrerDansLocalStorage" dans laquelle il y a les key et values du local storage
 JSON.parse pour convertir les données qui sont dans le local storage en objet javascript*/
 let itemsLocalStorage = JSON.parse(localStorage.getItem("products")) ?? [];
-const positionElement4 = document.querySelector(".produits_panier");
+const insererElement4 = document.querySelector(".produits_panier");
 
 //_______________________________________affichage des produits dans le panier
 function produitPanier(produits) {
@@ -22,7 +22,7 @@ function produitPanier(produits) {
                   </div> ` ; 
               });
           // code html dans la page
-           positionElement4.insertAdjacentHTML("afterbegin", html);  
+          insererElement4.insertAdjacentHTML("afterbegin", html);  
     }
     //si le panier est vide afficher panier vide
     else {
@@ -31,7 +31,7 @@ function produitPanier(produits) {
             <div>Votre panier est vide</div>
             </div>`;
           // code html dans la pageconst produits
-          positionElement4.insertAdjacentHTML("afterbegin", panierVide);
+          insererElement4.insertAdjacentHTML("afterbegin", panierVide);
     };
     //_______________________________________Bouton supprimer article    
     // selection des boutons btn_supprimer
@@ -49,7 +49,7 @@ function produitPanier(produits) {
                     }   
             //envoie la variable dans localstorage, transforme fomrat JSON et envoyer la clé du produit du localstorage
             localStorage.setItem("products", JSON.stringify(produits));
-            window.location.href = "panier_dyn.html";
+            window.location.href = "panier.html";
             })
         } 
 }
@@ -60,11 +60,11 @@ produitPanier(produits ?? []);
 
 //___________________________________________Bouton vider panier
 // code html du bouton vider panier "cart-row"
-const vider_panier_html =`
+const htmlViderPanier =`
     <button type="button"  class="vider_panier btn btn-primary  btn-purchase">Vider panier</button>
     `
 //mettre le code html dans la page
-positionElement4.insertAdjacentHTML("beforeEnd", vider_panier_html);
+insererElement4.insertAdjacentHTML("beforeEnd", htmlViderPanier);
 // selection du bouton vider_panier
 const vider_panier = document.querySelector(".vider_panier");
 //suppression de la clé produit du localstorage pour vider panier
@@ -73,21 +73,21 @@ const vider_panier = document.querySelector(".vider_panier");
         //removeitem pour vider le localstorage
         localStorage.removeItem("products");
         //rechargement de la page panier
-        window.location.href = "panier_dyn.html";
+        window.location.href = "liste_produit.html";
 });
 
 //________________________________________Montant total du panier
 // variable pour mettre les prix des produits choisis dans le panier
-let prixTotalcalcul = [];
+let calculTotal = [];
 //Chercher les prix dans panier
     for (let m = 0; m < itemsLocalStorage.length; m++) {
         let prixProduitPanier = itemsLocalStorage[m].price;
-        //mettre les prix du panier dans la variable prixtotalcalcul
-        prixTotalcalcul.push(prixProduitPanier)
+        //mettre les prix du panier dans la variable calculTotal
+        calculTotal.push(prixProduitPanier)
     }
-    //addition des prix du tableau de la variable prixTotalCalcul avec .reducer
+    //addition des prix du tableau de la variable calculTotal avec .reducer
     const reducer = (accumulator, currentvalue) => accumulator + currentvalue
-    const prixTotal = prixTotalcalcul.reduce(reducer, 0);
+    const prixTotal = calculTotal.reduce(reducer, 0);
 
     //code html du prix total
     const affichagePrixTotal = `
@@ -96,4 +96,4 @@ let prixTotalcalcul = [];
         <div class="cart-total-title">${prixTotal} €</div>
     </div>`;
     //// mise en place code html du bouton vider panier
-    positionElement4.insertAdjacentHTML("beforeEnd", affichagePrixTotal);
+    insererElement4.insertAdjacentHTML("beforeEnd", affichagePrixTotal);

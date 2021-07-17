@@ -32,10 +32,10 @@
                         <a class="nav-link" href="index.html">Accueil</a>
                      </li>
                      <li class="nav-item active ">
-                        <a class="nav-link" href="liste_prod_stat.html">Peluches</a>
+                        <a class="nav-link" href="liste_produit.html">Peluches</a>
                      </li>
                      <li class="nav-item ">
-                        <a class="nav-link" href="panier_dyn.html">Panier</a>
+                        <a class="nav-link" href="panier.html">Panier</a>
                      </li>
                   </ul>
                </div>   
@@ -51,7 +51,44 @@
 					<h2 class="section-header">Panier</h2>
 				<div class="cart-row produits_panier "></div>
          
-            <div class=" bon_commande"></div>
+            <div class=" bon_commande">
+               <div class="col-sm-6">			
+                  <form action="#" id="champForm">
+                      <div class="form-group">
+                          <label for="prenom">Prénom :</label>
+                          <input type="text" id="prenom" name="prenom" required class="form-control"/>
+                          <div id="alertePrenom" class="alertspan"></div>
+                      </div>
+                      <div class="form-group">
+                          <label for="nom">Nom :</label>
+                          <input type="text" id="nom" name="nom" required class="form-control"/>
+                          <div id="alerteNom" class="alertspan"></div>
+                      </div>
+                      <div class="form-group">
+                          <label for="adresse">Adresse :</label>
+                          <textarea id="adresse" name="adresse" required class="form-control"></textarea>
+                          <div id="alerteAdresse" class="alertspan"></div>
+                      </div>
+                      <div class="form-group">
+                          <label for="ville">Ville :</label>
+                          <input type="text" id="ville" name="ville" required class="form-control"/>
+                          <div id="alerteVille" class="alertspan"></div>
+                      </div>
+                      <div class="form-group">
+                          <label for="codePostal">Code postal :</label>
+                          <input type="text" id="codePostal" name="codePostal" required class="form-control"/>
+                          <div id="alerteCodePostal" class="alertspan"></div>
+                      </div>
+                      <div class="form-group">
+                          <label for="email">Courriel :</label>
+                          <input type="email" id="email" name="email"  required class="form-control"/>
+                          <div id="alerteEmail" class="alertspan"></div>
+                      </div>
+                      <br />
+                      <button type="submit" name="valider" id="envoyerFormulaire" class="btn btn-primary">Valider</button>
+                  </form>
+              </div>`;
+            </div>
          </div>     
 		</div>
 	</div>
@@ -66,8 +103,10 @@
   </div>
 
 <!-- Code javaScript -->
-<script src="./js/panier_dyn.js"></script>
+<script src="./js/panier.js"></script>
+
 <script src="./js/formulaire.js"></script>
+
 
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

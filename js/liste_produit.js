@@ -19,10 +19,10 @@ const affichageProduits = async(results) => {
                 <td class="w-25 align-middle">${teddie.name}</td>
                 <td class="w-25 align-middle">${teddie.description}</td>
                 <td class="w-25 align-middle">${teddie.price / 100} €</td>
-                <td class="w-25 align-middle"><a href="achat_dyna.html?id=${teddie._id}"><button class="btn btn-info">Voir</button></a>  </td>
+                <td class="w-25 align-middle"><a href="achat.html?id=${teddie._id}"><button class="btn btn-info">Voir</button></a>  </td>
                 </tr>
                 `
-            )).join('')
+            ))
         );
     } else {
         console.log("erreur de chargement de la page");
