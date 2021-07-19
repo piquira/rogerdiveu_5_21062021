@@ -132,7 +132,7 @@ function envoieVersServeur(aEnvoyer) {
                 window.location = "confirmation.html";
             }
             else {
-                console.log(`réponse erreur : ${response.status}`)
+                window.location.href = "liste_produit.html";
             };
         }
         catch (e) {

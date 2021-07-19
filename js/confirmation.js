@@ -17,7 +17,7 @@ function confirmation(dataconfirm) {
 
         dataconfirm.innerHTML = confirm;} 
     else {
-        console.log("erreur de chargement de page");
+        window.location.href = "panier.html";
     }
 }
 confirmation(document.querySelector("#confirmation_commande"));

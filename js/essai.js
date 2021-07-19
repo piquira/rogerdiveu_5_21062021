@@ -113,4 +113,7 @@ const emailControle = function (imputEmail) {
 else {
             alert("Attention en remplissant le formulaire de validation");
         };
+else {
+            console.log("Erreur formulaire de validation");
+        };
 */

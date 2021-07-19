@@ -2,9 +2,6 @@
 const chargerPeluches = async(url) => {
     teddies = await fetch(url)
     .then(response => { return response.json(); })
-        .catch((error) => {
-            console.log('Il y a eu un problème' + error.message);
-        });
 };
 
 //inclure le lien pour récupéré l'id du produit dans l'Url pour affichage page du produit
@@ -25,7 +22,7 @@ const affichageProduits = async(results) => {
             ))
         );
     } else {
-        console.log("erreur de chargement de la page");
+        window.location.href = "index.html";
     }
 };
 // insérer dans le HTML

@@ -3,8 +3,6 @@ async function chargerInfoPeluche(id) {
     const reponse = await fetch(url + "/" + id);
     const teddy = await reponse.json();
 
-    console.log(teddy);
-
     return teddy;
 }
 
