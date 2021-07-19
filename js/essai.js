@@ -108,3 +108,9 @@ const emailControle = function (imputEmail) {
     }
 };
 */
+
+/*ligne 104 du formulaire
+else {
+            alert("Attention en remplissant le formulaire de validation");
+        };
+*/

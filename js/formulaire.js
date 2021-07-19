@@ -52,7 +52,7 @@ function afficherForm() {
                 return true;
             } else {
                 const alerteCodePostal = document.querySelector("#alerteCodePostal");
-                alerteCodePostal.innerHTML = "Le champ ne doit contenir que des chiffres";
+                alerteCodePostal.innerHTML = "Code postal non valide";
                 return false;
             }
         };
@@ -72,7 +72,7 @@ function afficherForm() {
                 return true;
             } else {
                 const alerteEmail = document.querySelector("#alerteEmail");
-                alerteEmail.innerHTML = "Le champ doit contenir une adresse mail";
+                alerteEmail.innerHTML = "Adresse mail non valide";
                 return false;
             }
         };
@@ -102,7 +102,7 @@ function afficherForm() {
             envoieVersServeur(aEnvoyer);
         }
         else {
-            alert("Attention en remplissant le formulaire de validation");
+            console.log("Erreur formulaire de validation");
         };
     });
 }
@@ -140,7 +140,7 @@ function envoieVersServeur(aEnvoyer) {
         };
     });
 }
-//mettre le contenu des champs du formulaire dans le localStorage pour éviter la réécriture au client
+//mettre le contenu des champs du formulaire dans le localStorage pour éviter la réécriture des tests
 //prendre la clé dans le localStorage et mettre dans une variable
 const dataLocalStorage = localStorage.getItem("contacts");
 
